@@ -3,6 +3,8 @@ import { StyleSheet, Image, View, Text, TouchableOpacity } from 'react-native';
 import PrimeVideoLogo from '../../assets/prime_video.png';
 import AmazonLogo from '../../assets/amazon_logo.png';
 
+import MovieTheWell from '../../assets/movies/wheel_of_time.png';
+
 export const Home = () => {
   return (
     <View style={styles.container}>
@@ -28,6 +30,10 @@ export const Home = () => {
           <Text style={styles.categoryText}>Kids</Text>
         </TouchableOpacity>
       </View>
+
+      <TouchableOpacity style={styles.movieImageBackground}>
+        <Image source={MovieTheWell} style={styles.movieImage} />
+      </TouchableOpacity>
     </View>
   );
 };
