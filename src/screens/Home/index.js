@@ -1,9 +1,18 @@
-import { StyleSheet, Image, View, Text, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
 
 import PrimeVideoLogo from '../../assets/prime_video.png';
 import AmazonLogo from '../../assets/amazon_logo.png';
 
 import MovieTheWell from '../../assets/movies/wheel_of_time.png';
+import { MOVIESWATCHING } from '../../utils/moviesWatching';
+import { MoviesCard } from '../../components/MoviesCard';
 
 export const Home = () => {
   return (
@@ -34,6 +43,12 @@ export const Home = () => {
       <TouchableOpacity style={styles.movieImageBackground}>
         <Image source={MovieTheWell} style={styles.movieImage} />
       </TouchableOpacity>
+
+      <FlatList
+        data={MOVIESWATCHING}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <MoviesCard movieURL={item.moviesURL} />}
+      />
     </View>
   );
 };
@@ -69,5 +84,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '700',
     color: '#FFF',
+  },
+
+  movieImageBackground: {
+    width: '100%',
+    alignItems: 'center',
+  },
+
+  movieImage: {
+    flex: 1,
   },
 });
